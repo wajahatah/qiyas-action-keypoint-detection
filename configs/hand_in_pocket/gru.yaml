@@ -1,0 +1,25 @@
+# Approach F: GRU (3 layers x 64) over 5 steps of 24 values (10 x, 10 y, 4 position), any-one label.
+# Original optimisation: Adam lr 1e-3, no scheduler, no clipping, patience 10.
+# For the LSTM variant use kind: lstm, params {hidden_size: 64, num_layers: 2, clamp: [-10, 1]}
+# and model.missing_value: -10.
+name: gru
+model:
+  kind: gru
+  params: {hidden_size: 64, num_layers: 3}
+data:
+  normalise: frame
+  decimals: null
+  position_features: true
+  windowing: {window: 5, stride: 1, label_rule: any, layout: kp_major}
+  balance: {method: none}
+train:
+  epochs: 300
+  batch_size: 32
+  lr: 0.001
+  weight_decay: 0.0
+  optimizer: adam
+  scheduler: none
+  grad_clip: null
+  patience: 10
+synthetic: {n_videos: 8, n_desks: 4, n_frames: 150, seed: 0}
+output_dir: outputs/hand_in_pocket

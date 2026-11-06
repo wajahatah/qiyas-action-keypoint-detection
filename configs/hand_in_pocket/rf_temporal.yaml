@@ -1,0 +1,17 @@
+# Approach B: Random Forest on 5-frame windows of normalised keypoints, kp-major layout + desk
+# position, any-one label. Set `model.grid` to RF_PARAM_GRID-style lists to rerun the grid search
+# (video-grouped folds).
+name: rf_temporal
+model:
+  kind: rf
+  params: {n_estimators: 100}
+  grid: null
+  grid_cv: 5
+data:
+  normalise: frame
+  decimals: null          # this generation did not round
+  position_features: true
+  windowing: {window: 5, stride: 1, label_rule: any, layout: kp_major}
+  balance: {method: none}
+synthetic: {n_videos: 8, n_desks: 4, n_frames: 150, seed: 0}
+output_dir: outputs/hand_in_pocket

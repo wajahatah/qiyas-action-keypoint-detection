@@ -1,0 +1,31 @@
+# Approach I (3D variant): 5 grayscale 64x64 desk crops through a Conv3d encoder, fused with an MLP
+# on the 104-value keypoint vector (time-major, normalised, + desk position); 2-class head with
+# cross-entropy; window label = middle frame. Original optimisation: Adam lr 1e-3, patience 5.
+# Real data: point images.crop_root at exported crops (one file per desk and frame, file name from
+# images.pattern, searched in images.subdirs). With --synthetic, crops are rendered from keypoints.
+name: hybrid_3dcnn
+model:
+  kind: hybrid3d
+  params: {crop_feat_dim: 32, kpt_feat_dim: 32, n_classes: 2}
+data:
+  normalise: frame
+  decimals: null
+  position_features: true
+  windowing: {window: 5, stride: 1, label_rule: center, layout: time_major}
+  balance: {method: none}
+images:
+  crop_size: 64
+  crop_root: null
+  pattern: "{video}_d{desk_no}_f{frame}.jpg"
+  subdirs: [""]
+train:
+  epochs: 50
+  batch_size: 16
+  lr: 0.001
+  weight_decay: 0.0
+  optimizer: adam
+  scheduler: none
+  grad_clip: null
+  patience: 5
+synthetic: {n_videos: 6, n_desks: 4, n_frames: 100, seed: 0}
+output_dir: outputs/hand_in_pocket

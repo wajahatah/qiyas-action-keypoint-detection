@@ -1,0 +1,28 @@
+# Approach E: 5-frame MLP, all 5 frames kept -> 5 x 20 + 4 = 104 inputs, kp-major ("regrouped")
+# layout + desk position, all-one labelling, rounding and +-4 px jitter (dataset version 4a: the best
+# 14-video-bench row, arch c0). Not to be confused with the production "t5" model, which is the 3-frame
+# pipeline (mlp_t3.yaml) retrained with revised preprocessing.
+# Training settings of that generation: AdamW without weight decay, no scheduler, no clipping,
+# early-stopping patience 5. Swap `arch` for c1..c4 to reproduce the architecture comparison.
+name: mlp_5frame
+model:
+  kind: mlp
+  params: {arch: c0}
+data:
+  normalise: frame
+  decimals: 3
+  position_features: true
+  windowing: {window: 5, stride: 1, label_rule: all, layout: kp_major}
+  balance: {method: none}
+  augment: {max_px: 4, times_positive: 1, times_negative: 1}
+train:
+  epochs: 300
+  batch_size: 32
+  lr: 0.001
+  weight_decay: 0.0
+  optimizer: adamw
+  scheduler: none
+  grad_clip: null
+  patience: 5
+synthetic: {n_videos: 8, n_desks: 4, n_frames: 150, seed: 0}
+output_dir: outputs/hand_in_pocket

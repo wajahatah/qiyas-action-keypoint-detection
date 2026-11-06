@@ -1,0 +1,33 @@
+# Deployed hand-in-pocket recipe ("t3", arch c0): Temp-5 windows with t1/t3 dropped (frame skipping),
+# so 3 frames x 20 keypoint values + 4 desk-position values = 64 inputs. A 3-frame window spanning 5
+# frames is exactly what a skip-2 live stream delivers. Any-one labelling, segment-window balancing and
+# frame normalisation rounded to 3 decimals. No jitter augmentation: the deployed "balanced_norm" t3
+# dataset (Dataset C) was not augmented; set times_positive > 0 to try it.
+name: mlp_t3
+model:
+  kind: mlp
+  params: {arch: c0}
+data:
+  label_col: hand_in_pocket
+  normalise: frame
+  truncate_pixels: true
+  decimals: 3
+  position_features: true
+  windowing: {window: 5, stride: 1, keep: [0, 2, 4], label_rule: any, layout: kp_major}
+  balance: {method: segment, negative_cap: 30}
+  augment: {max_px: 4, times_positive: 0, times_negative: 0}
+train:
+  epochs: 500
+  batch_size: 32
+  lr: 0.001
+  weight_decay: 0.0001
+  optimizer: adamw
+  scheduler: plateau
+  scheduler_patience: 10
+  grad_clip: 1.0
+  patience: 25
+  min_event_frames: 5   # alert after 5 consecutive positive predictions
+synthetic: {n_videos: 8, n_desks: 4, n_frames: 150, seed: 0}
+frames_csv: null        # per-frame CSV (or --frames); not needed with --synthetic
+camera_layout: null     # needed only if the CSV has no position_* columns
+output_dir: outputs/hand_in_pocket
