@@ -1,0 +1,14 @@
+# TensorRT FP16 export of the fine-tuned pose model (requires an NVIDIA GPU + TensorRT).
+# Run:  python -m qiyas_akd.pose.export --config configs/pose/export_tensorrt_fp16.yaml --weights <best.pt>
+# The original exports produced static FP32 and FP16 engines at batch 5 and batch 10; FP16 roughly
+# doubled throughput over the PyTorch checkpoint.
+weights: null      # pass --weights
+format: engine     # engine = ONNX -> TensorRT; onnx = stop after ONNX
+half: true         # FP16
+batch: 10          # static engines must be fed exactly this many images per call
+dynamic: false     # true = accept any batch <= `batch`
+imgsz: 640
+opset: 19          # ONNX opset used by the original export
+device: 0
+workspace: null    # TensorRT builder workspace (GiB); null = Ultralytics default
+rename: true       # write <stem>_fp16_b10.engine instead of overwriting <stem>.engine

@@ -1,0 +1,30 @@
+# Fine-tuning config for the deployed model family: YOLO11l-pose on the custom 10-keypoint skeleton.
+# Values reproduce the final documented training call (latest iteration of the training script).
+# Run:  python -m qiyas_akd.pose.train --config configs/pose/yolo11l_pose.yaml --data <data.yaml>
+#
+# History of the knobs across the ~15 runs (from the runs' args.yaml):
+#   model     yolov8l-pose (first runs) -> yolo11l / yolo11m / yolo11s-pose (size comparison)
+#             -> yolo11l-pose (kept)
+#   freeze    6 (most runs) -> 4 -> none (final runs fine-tune the whole network)
+#   lr0       0.01 -> 0.0001 -> 0.001   (but see the optimizer note below)
+#   patience  20 -> 45 -> 25 -> 5
+#   batch     16 (32/64/128 tried once each) -> 0.95 (AutoBatch, 95 % of GPU memory)
+#   epochs    100 -> 200 -> 300 (early stopping by patience decides the real length)
+model: yolo11l-pose.pt
+data: null            # path to data.yaml — pass --data (see qiyas_akd.pose.dataset)
+epochs: 300
+imgsz: 640
+batch: 0.95           # float in (0,1) = AutoBatch GPU-memory fraction; use an int on small GPUs
+patience: 5
+# optimizer=auto (every original run) makes Ultralytics pick optimizer, lr0 and momentum itself and
+# IGNORE lr0 below. Kept to reproduce the runs; set e.g. AdamW to make lr0 effective.
+optimizer: auto
+lr0: 0.001
+freeze: null          # null = train all layers
+seed: 0
+deterministic: true
+workers: 8
+device: null          # e.g. 0, "0,1" or cpu
+project: null
+name: yolo11l_pose_10kpt
+extra: {}             # any further Ultralytics train argument, passed verbatim
