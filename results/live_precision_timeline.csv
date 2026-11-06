@@ -1,0 +1,16 @@
+period_start,period_end,behaviour,tp,fp,cameras,pose_model,logic,eval_type,note
+2024-10-14,2024-10-16,looking_around,17,37,1,none (gaze-target model),gaze-target baseline before the pose approach,live_alert_review_precision_only,baseline; small sample
+2024-11-27,2024-12-04,looking_around,20,12,1,v2 (single-camera system),ear-line angle,live_alert_review_precision_only,small sample
+2024-12-10,2024-12-23,looking_around,18,10,1,v2-y11,ear-line angle,live_alert_review_precision_only,small sample
+2025-01-13,2025-01-14,looking_around,47,16,10,v2-y11,ear-line angle + desk ROI,live_alert_review_precision_only,first multi-camera run
+2025-02-10,2025-02-10,looking_around,53,14,10,v3,ear-line angle + per-camera base angles,live_alert_review_precision_only,
+2025-02-11,2025-02-20,looking_around,398,71,10,v5-1,ear-line angle + per-camera base angles,live_alert_review_precision_only,
+2025-02-24,2025-02-27,looking_around,266,10,10,v6-1 / v5-1,depth-scaled threshold tightened (x30 -> x15),live_alert_review_precision_only,v6-1 live 24-26 Feb then reverted
+2025-03-02,2025-03-05,looking_around,66,2,10,v5-1,depth-scaled threshold (x15),live_alert_review_precision_only,
+2025-03-06,2025-03-06,looking_around,46,0,10,v7-2,depth-scaled threshold (x15),live_alert_review_precision_only,
+2025-11-02,2025-11-12,looking_around,3437,342,2 rooms,v8-1,polynomial depth threshold,live_alert_review_precision_only,2-week production log (9 logging days)
+2025-02-11,2025-02-20,hand_in_pocket,11,110,10,v5-1,rule-based (production),live_alert_review_precision_only,baseline before ML
+2025-02-24,2025-02-27,hand_in_pocket,129,601,10,v6-1 / v5-1,rule-based (production),live_alert_review_precision_only,baseline before ML
+2025-03-02,2025-03-06,hand_in_pocket,41,192,10,v5-1 / v7-2,rule-based (production),live_alert_review_precision_only,baseline before ML
+2025-09-28,2025-09-30,hand_in_pocket,36,63,2 rooms,v8-1,MLP t3 (this work),live_alert_review_precision_only,first days after MLP deployment (2025-09-21)
+2025-11-02,2025-11-12,hand_in_pocket,227,888,2 rooms,v8-1,MLP (this work),live_alert_review_precision_only,2-week production log (9 logging days)

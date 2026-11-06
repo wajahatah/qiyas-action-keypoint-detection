@@ -1,0 +1,60 @@
+family,variant,features,label_rule,eval_round,n_videos,tp,fp,fn,eval_type
+Random Forest,"single-frame, keypoints + bone lengths",kp+dist,-,round 1,14,7,0,35,video_bench_events
+Random Forest,"single-frame, bone lengths only",dist,-,round 1,14,8,10,34,video_bench_events
+Random Forest,"single-frame, keypoints only",kp,-,round 1,14,15,1,28,video_bench_events
+Random Forest,"5-frame, keypoints + bone lengths",kp+dist,majority,round 1,14,1,0,38,video_bench_events
+Random Forest,"5-frame, kp + dist",kp+dist,any-one,round 1,14,6,1,41,video_bench_events
+Random Forest,"5-frame, kp + dist",kp+dist,>=3 of 5,round 1,14,4,1,40,video_bench_events
+Random Forest,"5-frame, keypoints",kp,any-one,round 1,14,26,3,30,video_bench_events
+Random Forest,"5-frame, keypoints",kp,>=3 of 5,round 1,14,21,5,35,video_bench_events
+Random Forest,"5-frame, normalised keypoints",kp norm,any-one,round 1,14,25,5,33,video_bench_events
+Random Forest,"5-frame, normalised keypoints",kp norm,>=3 of 5,round 1,14,23,4,36,video_bench_events
+Random Forest,"5-frame, normalised, kp-major layout",kp norm regrouped,any-one,round 1,14,26,3,32,video_bench_events
+Random Forest,"5-frame, normalised, kp-major layout",kp norm regrouped,>=3 of 5,round 1,14,21,0,40,video_bench_events
+XGBoost,"5-frame, normalised keypoints",kp norm,any-one,round 1,14,28,12,31,video_bench_events
+LightGBM,"5-frame, normalised keypoints",kp norm,any-one,round 1,14,39,27,31,video_bench_events
+Random Forest,"5-frame, normalised + grid search (5-fold)",kp norm,any-one,round 1,14,27,2,31,video_bench_events
+Rule-based baseline,production rules at the time (angles + motion sequences),rules,-,round 1,14,15,2,25,video_bench_events
+Random Forest,"grid search, kp-major, dataset v2 (140 videos)",kp norm regrouped,any-one,round 1,14,28,0,21,video_bench_events
+Random Forest,"grid search, normalised, dataset v2 (140 videos)",kp norm,any-one,round 1,14,28,0,18,video_bench_events
+Random Forest,"grid search, raw keypoints, dataset v2 (140 videos)",kp,any-one,round 1,14,26,0,25,video_bench_events
+Random Forest,"kp-major, block-balanced (set 1)",kp regrouped,any-one,round 1,14,18,6,11,video_bench_events
+Random Forest,"kp-major, block-balanced (set 6)",kp regrouped,any-one,round 1,14,17,2,14,video_bench_events
+Random Forest,"normalised, kp-major + desk position",kp norm regrouped pos,any-one,round 1,14,29,2,21,video_bench_events
+Random Forest,normalised + desk position,kp norm pos,any-one,round 1,14,30,1,24,video_bench_events
+MLP,"5-frame, normalised, kp-major (arch c0)",kp norm regrouped,any-one,round 1,14,36,3,15,video_bench_events
+MLP,"5-frame, normalised, kp-major (arch c2)",kp norm regrouped,any-one,round 1,14,37,3,13,video_bench_events
+MLP,"5-frame, normalised, time-major (arch c0)",kp norm,any-one,round 1,14,36,4,15,video_bench_events
+MLP,"normalised, kp-major + position (arch c2)",kp norm regrouped pos,any-one,round 1,14,36,4,14,video_bench_events
+MLP,"normalised, kp-major + position (arch c0)",kp norm regrouped pos,any-one,round 1,14,37,2,12,video_bench_events
+MLP,normalised + position (arch c0),kp norm pos,any-one,round 1,14,37,4,12,video_bench_events
+MLP,kp-major + position (arch c1),kp regrouped pos,any-one,round 1,14,36,7,14,video_bench_events
+MLP,"kp-major + position (arch c1, rerun)",kp regrouped pos,any-one,round 1,14,35,7,18,video_bench_events
+MLP,kp-major + position (arch c3),kp regrouped pos,any-one,round 1,14,35,8,20,video_bench_events
+MLP,normalised + position (arch c3),kp norm pos,any-one,round 1,14,36,9,13,video_bench_events
+MLP,normalised + position (arch c4),kp norm pos,any-one,round 1,14,38,6,13,video_bench_events
+MLP,kp-major + position (arch c4),kp regrouped pos,any-one,round 1,14,38,7,11,video_bench_events
+Temporal CNN,5 stacked grayscale full frames,image,any-one,round 1,14,29,3,28,video_bench_events
+Temporal CNN,"5 stacked grayscale desk crops, keypoints drawn",image+kp overlay,any-one,round 1,14,14,20,35,video_bench_events
+Temporal CNN,5 stacked grayscale desk crops,image,any-one,round 1,14,16,17,34,video_bench_events
+Hybrid CNN + MLP,2D-CNN crops + keypoint MLP (v1),image+kp,any-one,round 1,14,11,0,40,video_bench_events
+Hybrid CNN + MLP,2D-CNN crops + keypoint MLP (v2),image+kp,any-one,round 1,14,33,3,26,video_bench_events
+Hybrid CNN + MLP,2D-CNN crops + keypoint MLP (v3),image+kp,any-one,round 1,14,24,2,36,video_bench_events
+Hybrid 3D-CNN + MLP,3D-CNN crops + keypoint MLP,image+kp,any-one,round 1,14,24,4,28,video_bench_events
+Hybrid 3D-CNN + MLP,3D-CNN crops + normalised keypoint MLP,image+kp norm,any-one,round 1,14,19,2,31,video_bench_events
+Hybrid 3D-CNN + MLP,3D-CNN + normalised keypoints + position,image+kp norm pos,any-one,round 1,14,17,1,33,video_bench_events
+MLP,"normalised + position, dataset v2 (arch c1)",kp norm pos,not recorded,round 2 (fixed ground truth),14,31,6,12,video_bench_events
+MLP,"normalised, kp-major + position (arch c0)",kp norm regrouped pos,not recorded,round 2 (fixed ground truth),14,32,2,11,video_bench_events
+MLP,"normalised + position, dataset v2 (arch c4)",kp norm pos,not recorded,round 2 (fixed ground truth),14,35,7,12,video_bench_events
+MLP,"normalised + position, dataset v2 (arch c0, streaming pipeline)",kp norm pos,not recorded,round 2 (fixed ground truth),14,30,2,12,video_bench_events
+MLP,"normalised, kp-major + position (arch c0, retrained)",kp norm regrouped pos,not recorded,round 2 (fixed ground truth),14,34,1,8,video_bench_events
+MLP,"kp-major + position, raw (arch c0)",kp regrouped pos,not recorded,round 2 (fixed ground truth),14,28,0,14,video_bench_events
+MLP,"kp-major + position, raw (arch c4)",kp regrouped pos,not recorded,round 2 (fixed ground truth),14,33,1,9,video_bench_events
+MLP,"normalised, kp-major + position, dataset v2 (arch c4)",kp norm regrouped pos,not recorded,round 2 (fixed ground truth),14,32,1,12,video_bench_events
+MLP,+ 3-decimal rounding (arch c0),kp norm regrouped pos round,not recorded,round 2 (fixed ground truth),14,28,1,14,video_bench_events
+MLP,"+ rounding, outlier-dropped (arch c0)",kp norm regrouped pos round,not recorded,round 2 (fixed ground truth),14,30,2,12,video_bench_events
+MLP,raw kp-major + position + rounding (arch c0),kp regrouped pos round,not recorded,round 2 (fixed ground truth),14,29,0,13,video_bench_events
+MLP,+ rounding + ±4 px jitter augmentation (arch c0),kp norm regrouped pos round aug,all-one,round 2 (fixed ground truth),14,36,3,6,video_bench_events
+MLP,"+ rounding + jitter augmentation (arch c0, threshold 0.6)",kp norm regrouped pos round aug,all-one,round 2 (fixed ground truth),14,35,3,7,video_bench_events
+MLP,+ rounding + jitter augmentation (arch c1),kp norm regrouped pos round aug,all-one,round 2 (fixed ground truth),14,33,1,9,video_bench_events
+MLP,+ rounding + jitter augmentation (arch c2),kp norm regrouped pos round aug,all-one,round 2 (fixed ground truth),14,35,2,7,video_bench_events

@@ -1,0 +1,8 @@
+method,pose_model,threshold,n_videos,tp,fp,fn,eval_type,note
+Head-crop CNN classifier,-,sigmoid 0.5,27,14,6,7,video_bench_events,grayscale head crop binary CNN
+Centre angle (head vs ear midpoint),YOLOv8-pose,dynamic,27,15,15,10,video_bench_events,
+Visual-field triangle area,YOLOv8-pose,-,27,21,10,3,video_bench_events,
+Ear-line (gaze) angle,YOLOv8-pose,60 deg dynamic,27,21,7,3,video_bench_events,
+Ear-line (gaze) angle,YOLO11-pose,70 deg dynamic,27,15,0,6,video_bench_events,
+Centre angle (head vs ear midpoint),YOLO11-pose,dynamic,10,4,3,5,video_bench_events,partial: only ~10 of 27 videos scored
+Visual-field triangle area,YOLO11-pose,-,10,7,1,2,video_bench_events,partial: only ~10 of 27 videos scored

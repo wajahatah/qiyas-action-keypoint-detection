@@ -1,0 +1,7 @@
+model,format,precision,parallel_instances,batch,throughput
+v7-2,PyTorch .pt,FP32,1,10,6
+v7-2,PyTorch .pt,FP32,2,5,7
+v7-2,TensorRT engine,FP32,2,5,5
+v7-2,TensorRT engine,FP32,1,10,6
+v7-2,TensorRT engine,FP16,2,5,13
+v7-2,TensorRT engine,FP16,1,10,13

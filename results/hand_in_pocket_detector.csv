@@ -1,0 +1,6 @@
+experiment,classes,precision,recall,map50,map50_95,eval_type,note
+11-class hand-state detector (data v1),all 11,0.492,0.646,0.570,0.313,val_split_video_level,YOLOv8m; vendor-annotated bounding box per hand
+11-class (data v2),all 11,,,0.458,0.258,val_split_video_level,
+HIP-only detector (data v1),HIP + HIP-suspected,0.860,0.641,0.683,0.377,val_split_video_level,best mAP50
+HIP-only detector (data v2),HIP + HIP-suspected,,,0.642,0.430,val_split_video_level,best mAP50-95
+Non-HIP hand states (data v2),6 non-HIP classes,,,0.333,0.168,val_split_video_level,used as an FP-blocker prototype

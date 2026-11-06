@@ -1,0 +1,17 @@
+room,alert_class,approach,tp,fp,days,eval_type
+room 1,Hand in pocket,Production rule-based system,37,331,5,live_alert_review_precision_only
+room 1,Hand in pocket,MLP + augmentation (this work),14,18,5,live_alert_review_precision_only
+room 1,Hand in pocket,MLP alternative preprocessing,22,29,5,live_alert_review_precision_only
+room 1,Hand in pocket,MLP ROI-normalised,10,15,5,live_alert_review_precision_only
+room 2,Hand in pocket,Production rule-based system,22,271,5,live_alert_review_precision_only
+room 2,Hand in pocket,MLP + augmentation (this work),4,29,5,live_alert_review_precision_only
+room 2,Hand in pocket,MLP alternative preprocessing,5,29,5,live_alert_review_precision_only
+room 2,Hand in pocket,MLP ROI-normalised,4,33,5,live_alert_review_precision_only
+room 1,Hand in pocket (suspected),Production rule-based system,15,290,5,live_alert_review_precision_only
+room 1,Hand in pocket (suspected),MLP + augmentation (this work),4,29,5,live_alert_review_precision_only
+room 1,Hand in pocket (suspected),MLP alternative preprocessing,5,18,5,live_alert_review_precision_only
+room 1,Hand in pocket (suspected),MLP ROI-normalised,2,21,5,live_alert_review_precision_only
+room 2,Hand in pocket (suspected),Production rule-based system,9,303,5,live_alert_review_precision_only
+room 2,Hand in pocket (suspected),MLP + augmentation (this work),0,58,5,live_alert_review_precision_only
+room 2,Hand in pocket (suspected),MLP alternative preprocessing,0,32,5,live_alert_review_precision_only
+room 2,Hand in pocket (suspected),MLP ROI-normalised,1,32,5,live_alert_review_precision_only

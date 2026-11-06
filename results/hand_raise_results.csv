@@ -1,0 +1,7 @@
+approach,eval_type,n_eval,precision,recall,f1,accuracy,map50,note
+Random Forest on normalised keypoints,val_split_video_level,7811 person-frames (5 held-out videos),0.80,0.43,0.56,0.751,,per-frame; best honest hand-raise result
+Random Forest on normalised keypoints,test_video_qualitative,386 frames (1 unseen video),,,,,,predicted no hand raise on any frame
+YOLO image classifier on seat crops (v8s-cls),val_split_frame_level,1983 crops (3 % positive),,0.115,,0.973,,accuracy equals the all-negative baseline
+YOLO image classifier on seat crops (11m-cls),val_split_frame_level,1983 crops (3 % positive),,0.0,,0.969,,recalled 0 of 61 positives
+YOLOv10s hand-raise detector (keypoint overlay),val_split_frame_level,1683 frames,0.993,0.998,,,0.995,leakage: consecutive frames in train and val
+YOLOv10s hand-raise detector (keypoint overlay),test_video_qualitative,160 frames (1 unseen video),,,,,,3 detections in 160 frames

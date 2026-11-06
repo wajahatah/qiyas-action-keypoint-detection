@@ -1,0 +1,14 @@
+dataset_version,preparation,balanced,rounded,training_videos,model,window,n_bench_videos,gt_events,tp,fp,fn,eval_type
+2a,A: 5-frame any-one,no,no,140,MLP kp-major + position,5,14,42,31,2,11,video_bench_events
+2a,A: 5-frame any-one,no,no,140,MLP time-major + position,5,14,42,31,4,11,video_bench_events
+2b,A: 5-frame any-one,no,yes,140,MLP kp-major + position + rounding,5,14,42,30,2,12,video_bench_events
+3b,B: all-one label,no,yes,140,MLP kp-major + position,5,14,42,34,1,8,video_bench_events
+3b,B: all-one label,no,yes,140,MLP kp-major + position + rounding,5,14,42,28,1,14,video_bench_events
+4a,B: all-one + jitter augmentation,no,yes,140,MLP augmented + rounding,5,14,42,36,3,6,video_bench_events
+5a,B: all-one,yes,yes,140,MLP time-major + position,5,14,42,30,2,11,video_bench_events
+5b,C: frame-skip (t0 t2 t4),yes,yes,140,MLP t3 (this work),3,10,67,34,2,32,video_bench_events
+5b,C: frame-skip (t0 t2 t4),yes,yes,140,MLP t3 alternative preprocessing,3,10,67,29,3,37,video_bench_events
+6b,C: frame-skip + transition windows removed,yes,yes,501,MLP t3 without transitions,3,10,67,22,1,44,video_bench_events
+6a,C: frame-skip (t0 t2 t4),yes,yes,501,MLP t3 (this work),3,77,101,46,6,53,video_bench_events
+5b,C: frame-skip (t0 t2 t4),yes,yes,140,MLP t3 alternative preprocessing,3,77,101,63,34,37,video_bench_events
+7,D: 4-frame random frame deletion,yes,yes,501,MLP t4,4,77,101,38,4,62,video_bench_events

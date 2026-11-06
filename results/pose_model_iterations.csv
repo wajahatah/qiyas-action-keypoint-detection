@@ -1,0 +1,17 @@
+version,base_model,train_date,best_epoch,box_map50_95,pose_map50,pose_map50_95,dataset_generation,eval_type,deployed_from,note
+v1 (baseline),yolov8l-pose,2024-10-23,,0.666,0.942,0.661,G1,val_split_frame_level,,first working fine-tune on the 10-keypoint skeleton
+v2,yolov8l-pose,2024-11-01,24,0.695,0.967,0.704,G1,val_split_frame_level,,lower lr after collapsed runs at lr0=0.01
+v2-y11,yolo11l-pose,2024-11-05,33,0.683,0.959,0.675,G1,val_split_frame_level,2024-12-06,first model in the live system
+v3-m,yolo11m-pose,2025-01-01,2,0.734,0.948,0.708,G2,val_split_frame_level,,size sweep: medium
+v3-l,yolo11l-pose,2025-01-02,6,0.683,0.844,0.692,G2,val_split_frame_level,,size sweep: large
+v3-s,yolo11s-pose,2025-01-03,6,0.732,0.941,0.721,G2,val_split_frame_level,,size sweep: small
+v3-v8,yolov8l-pose,2025-01-04,5,0.692,0.841,0.688,G2,val_split_frame_level,,YOLOv8 vs YOLO11 control
+v3,yolo11l-pose,2025-01-18,96,0.757,0.903,0.752,G2,val_split_frame_level,2025-01-23,
+v4-a,yolo11l-pose,2025-02-05,50,0.734,0.886,0.758,G2,val_split_frame_level,,
+v4-b,yolo11l-pose,2025-02-07,68,0.741,0.889,0.763,G2,val_split_frame_level,,
+v5-1,yolo11l-pose,2025-02-10,10,0.759,0.915,0.802,G2,val_split_frame_level,2025-02-11,
+v5-2,yolo11l-pose,2025-02-11,14,0.762,0.914,0.803,G2,val_split_frame_level,,freeze=4 instead of 6
+v6-1,yolo11l-pose,2025-02-24,81,0.989,0.995,0.9945,G3,val_split_frame_level,2025-02-24,reverted to v5-1 on 2025-02-26
+v7-2,yolo11l-pose,2025-03-02,113,0.988,0.995,0.9945,G3,val_split_frame_level,2025-03-06,no frozen layers; exported to TensorRT
+v8-1,yolo11l-pose,2025-06-29,167,0.987,0.995,0.9936,G3,val_split_frame_level,2025-08-22,current production model
+v8-2,yolo11l-pose,2025-06-30,219,0.990,0.995,0.9943,G3,val_split_frame_level,,not deployed
