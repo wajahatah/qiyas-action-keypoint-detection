@@ -1,0 +1,10 @@
+# Ear-line angle with the per-desk linear depth threshold (base_angle_in/out from the camera layout,
+# slope k = 15) and a 4-of-5-frame persistence filter.
+method: ear_line
+threshold:
+  kind: linear
+  k: 15
+  integer_step: true
+window: 5
+min_hits: 4
+require_current: true

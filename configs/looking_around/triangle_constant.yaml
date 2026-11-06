@@ -1,0 +1,8 @@
+# Visual-field triangle method with a fixed 45 degree half-angle cone of 150 px.
+method: triangle
+threshold:
+  kind: constant
+  angle: 45
+cone_length: 150
+window: 5
+min_hits: 4

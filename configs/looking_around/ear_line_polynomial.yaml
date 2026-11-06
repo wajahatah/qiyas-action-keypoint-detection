@@ -1,0 +1,9 @@
+# Ear-line angle with a 6th-order polynomial threshold in the clipped depth proxy x.
+# Coefficients are highest power first; re-fit them for your own camera geometry.
+method: ear_line
+threshold:
+  kind: polynomial
+  coeffs: [149.15, -105.85, -212.34, 145.46, 87.967, -93.82, 50.668]
+  clip: true
+window: 5
+min_hits: 4
