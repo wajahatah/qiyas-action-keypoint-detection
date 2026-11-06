@@ -1,0 +1,7 @@
+# Random forest on seat-shifted ("generalise") features plus the rule's engineered cues.
+# Needs a camera layout: --camera configs/cameras/example_camera.yaml
+model: rf
+variant: generalise
+engineered: true
+n_estimators: 50
+seed: 42

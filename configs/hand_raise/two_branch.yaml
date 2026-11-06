@@ -1,0 +1,10 @@
+# Two-branch keypoint MLP (x branch / y branch), frame-normalised features, video-grouped split.
+model: two_branch
+variant: normalise
+epochs: 20
+batch_size: 32
+lr: 0.001
+patience: 10
+test_size: 0.2
+seed: 42
+threshold: 0.6
