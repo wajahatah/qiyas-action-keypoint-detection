@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+build/
+dist/
+
+# Data, weights and run artefacts never belong in this repo
+data/
+runs/
+outputs/
+*.pt
+*.pth
+*.onnx
+*.engine
+*.h5
+*.joblib
+*.pkl
+*.mp4
+*.avi
+
+# Local deny-list for the sanitisation gate (names that must never appear)
+scripts/deny_terms.txt
